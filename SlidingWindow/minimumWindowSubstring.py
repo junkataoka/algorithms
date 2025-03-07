@@ -38,6 +38,7 @@ def minWindow(s: str, t: str) -> str:
     res = [-1, -1]
 
     for r in range(len(s)):
+
         window_count[s[r]] = window_count.get(s[r], 0) + 1
         if window_count[s[r]] == t_count[s[r]]:
             have += 1

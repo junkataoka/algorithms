@@ -22,6 +22,7 @@ Constraints:
 
 """
 
+# Solving
 def largestRectrangle(heights):
     max_area = 0
 
