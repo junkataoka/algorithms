@@ -23,7 +23,7 @@ Constraints:
 -1000 <= nums[i] <= 1000
 1 <= k <= nums.length
 """
-
+# Solving...
 import collections
 from typing import List
 def maxSlidingWindow(nums: List[int], k: int) -> List[int]:
