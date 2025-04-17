@@ -23,17 +23,21 @@ Constraints:
 """
 
 def characterRepleacement(s, k):
-    count_freq = {}
-    max_freq = 0
-    res = 0
-    l = 0
-    for r in range(len(s)):
-        count_freq[s[r]] = count_freq.get(s[r], 0) + 1
-        max_freq = max(max_freq, count_freq[s[r]])
-        cur_len = r - l + 1
-        if cur_len - max_freq > k:
-            count_freq[s[l]] -= 1
-            l += 1
 
-        res = max(res, r-l+1)
-    return res
+    counter = [0] * 26
+    max_len = 0
+    max_count = 0
+    left = 0
+
+    for right in range(len(s)):
+        counter[ord(s[right]) - ord('A')] += 1
+        max_count = max(max_count, counter[ord(s[right]) - ord('A')])
+
+        while right - left + 1 - max_count > k:
+            counter[ord(s[left]) - ord('A')] -= 1
+            left += 1
+
+        max_len = max(max_len, right - left + 1)
+
+    return max_len
+
